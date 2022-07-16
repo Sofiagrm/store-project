@@ -1,0 +1,10 @@
+* npx create-react-app my-app
+
+* npx generate-react-cli component nome_do_componente
+Utilisa as intruções no ficheiro generate-react-cli.json para criara components através da linha de commandos.
+Cria uma pasta com o nome do componente e nesta pasta cria dois ficheiros.
+Um ficheiro jsx baseado no template jsx na pasta templates/component e um ficheiro com um modulo css do tipo scss.
+O ficheiro scss vai conter estilos que estão associados unicamente ao contexto do próprio componente.
+
+
+npx generate-react-cli component Footer

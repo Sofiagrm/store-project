@@ -1,0 +1,87 @@
+div#listComponent.listComponentContainer {
+
+    .listTitle {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+        color: rgb(112, 110, 110);
+    }
+
+    section.itemsList {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        //column-gap: 5%;
+        row-gap: 25px;
+
+        .listItem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .listItemImage {
+                max-width: 240px;
+            }
+
+            .listItemTitle {
+                display: flex;
+                flex-direction: column;
+                font-size: 16px;  
+                text-align: center;
+            }
+        }
+    }
+}
+    
+
+
+/*
+div#list-component.list-component-container section.items-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+div#list-component.list-component-container .items-list .list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+*/
+  
+  
+@media only screen and (max-width: 960px) {
+    div#list-component.list-component-container section.items-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 5vw;
+        row-gap: 25px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    div#list-component.list-component-container section.items-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 5vw;
+        row-gap: 25px;
+    }
+}
+      
+      
+@media only screen and (max-width: 640px) {
+    div#list-component.list-component-container section.items-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 5vw;
+        row-gap: 25px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    div#list-component.list-component-container section.items-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5vw;
+        row-gap: 25px;
+    }
+}
