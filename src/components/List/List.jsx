@@ -6,7 +6,7 @@ export function List() {
     //const movies = useSelector( state => state.movies );
     const products = useSelector( state => state.products );
     //const catId = useSelector( state => state.catId );
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     //const setMovie = (evt) => {
         //let movie_index = evt.target.dataset.index;
@@ -17,6 +17,16 @@ export function List() {
           });
           */
     //}
+
+    const setProduct = (evt) => {
+
+        let item_index = evt.target.dataset.index;
+        
+        dispatch({
+            type: "SET_PRODUCT",
+            product: products[0].data[item_index]
+            });
+    }
 
     return (
         <div id={styles.listComponent} className={styles.listComponentContainer}>
@@ -48,17 +58,18 @@ export function List() {
 
                 products[0] ? products[0].data.map( (value, index) => (
                     <div className={styles.listItem} key={index}>
-                        <img className={styles.listItemImage}
-                            src={value.imgurl}
-                            alt={value.designation} 
-                            data-index={index} 
-                        />
+                        <Link className="list-item-image-link" to={"/ItemDetail/"} key={index}>
+                            <img className={styles.listItemImage}
+                                src={value.imgurl}
+                                alt={value.designation} 
+                                data-index={index}
+                                onClick={setProduct}
+                            />
+                        </Link>
                         
                         <div className={styles.listItemTitle}> 
                             <span>{value.designation}</span>
                             <span>{value.price}</span>
-                            <span>{value.prodref}</span>
-                            <span>{value.idproduct}</span>
                         </div>
                     </div>
                 )) : "wait"

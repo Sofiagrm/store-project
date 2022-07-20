@@ -9,17 +9,22 @@ div#listComponent.listComponentContainer {
 
     section.itemsList {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        //column-gap: 5%;
+        grid-template-columns: repeat(4, 1fr);
         row-gap: 25px;
+        column-gap: 20px;
+        margin: 0 20px;
 
         .listItem {
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: #f3f3f3;
+            box-shadow: 0 0 0 5px white;
+            border-radius: 5px;
 
             .listItemImage {
-                max-width: 240px;
+                max-width: 360px;
+                width: 100%;
             }
 
             .listItemTitle {

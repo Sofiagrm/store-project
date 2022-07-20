@@ -6,7 +6,9 @@ const initialState = {
     movie: [],
     catId: "",
     products: [],
-    product: []
+    product: [],
+    categories: [],
+    category: []
 }
 
 export const store = createStore(reducer, initialState);

@@ -12,8 +12,24 @@ export async function getProducts (url) {
     }
 }
 
+export async function getProductsByCategory (catref) {
+    try {
+        console.log(catref);
+        const resp = await fetch('http://localhost:8081/api/products/cat/' + catref , { 
+                                    method: 'GET', 
+                                });
+
+        const json_response = await resp.json();
+
+        let data = {data : json_response};
+
+        return [data];
+    } catch (err) {
+        console.error(err);
+    }
+}
+
 export async function getProduct (ref) {
-    //fetch("https://kitsu.io/api/edge/anime/10", {"method": "GET"})
     try {
         console.log(ref);
         const resp = await fetch('http://localhost:8081/api/products/' + ref , { 
