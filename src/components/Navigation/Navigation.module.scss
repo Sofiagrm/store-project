@@ -10,6 +10,8 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: flex-start;
+        margin-left: 50px;
+        column-gap: 50px;
     }
 }

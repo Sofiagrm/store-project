@@ -56,7 +56,7 @@ export function List() {
                 )) : "wait"
                 */
 
-                products[0] ? products[0].data.map( (value, index) => (
+                products[0] ? products[0].data.filter(value => value.stock > 0).map( (value, index) => (
                     <div className={styles.listItem} key={index}>
                         <Link className="list-item-image-link" to={"/ItemDetail/"} key={index}>
                             <img className={styles.listItemImage}
@@ -73,7 +73,6 @@ export function List() {
                         </div>
                     </div>
                 )) : "wait"
-
             }
             </section>
         </div>

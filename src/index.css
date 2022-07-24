@@ -28,18 +28,25 @@ div#root {
 
 div#layout
 {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 div#layout header {
-  background-color: antiquewhite;
-  min-height: 50px;
+    background-color: antiquewhite;
+    min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+  
+div#layout main {
+    flex: 1 1 auto;
 }
 
-div#layout main {
-  flex: 1 1 auto;
+main#main-content.main-content-container {
+    width: 100vw;
 }
 
 code {
@@ -92,12 +99,7 @@ nav#side-bar .side-bar-content {
   width: 250px;
 }
 
-main#main-content.main-content-container {
-  /*margin-top: 36px;*/
-  /*background-image: linear-gradient(to bottom, rgb(168, 218, 168), honeydew);*/
-  /*background-color: rgb(168, 218, 168);*/
-  width: 100vw;
-}
+
 
 div#cat-list-component.cat-list-container {
   margin-left: 10px;

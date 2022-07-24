@@ -1,0 +1,38 @@
+.ItemDetailContainer {
+    display: flex;
+    flex-direction: column;
+
+    .buttonContainer {
+        display: initial;
+    }
+
+    .productDetailContent {
+        display: flex;
+        flex-direction: row;
+
+        section.imagePanel {
+            display: initial;
+
+            .imageContainer {
+                display: initial;
+            }
+        }
+
+        section.infoPanel {
+            display: initial;
+
+            .infoContent {
+                display: initial;
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+
+                    span {
+                        display: initial;
+                    }
+                }
+            }
+        }
+    }
+}

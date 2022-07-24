@@ -15,37 +15,20 @@ export function ItemList() {
 
     useEffect(  () => {
         ( async function() {
-            console.log();
-
             const products = await getProductsByCategory(params.catId);
-
-            console.log("products", products)
 
             dispatch({
                 type: "PRODUCT_LIST_PAGE",
                 product_list: products
-              });
+            });
         })();
-    }, [dispatch])
+    }, [dispatch, params.catId])
 
     return (
         <div id="movie-list-component" className={styles.ItemList}>
             <div className={styles.movieListContent}>
                 {
-                   /* movieList[0] ? <List/> : "wait"*/
                    productList[0] ? <List/> : "wait"
-                }
-                {
-                    /*
-                    movieList[0] ? ( movieList[0].meta.count > 20 && 
-                        <ListNavigation 
-                            offSet={offSet} 
-                            onPrevPageChange={handlePrevPageChange}
-                            onNextPageChange={handleNextPageChange}
-                            listLength={movieList[0].meta.count}
-                            goTo={goTo}
-                        /> ) : "wait"
-                    */
                 }
             </div>
         </div>

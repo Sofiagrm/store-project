@@ -1,0 +1,33 @@
+.Basket {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+
+
+    .prodImage {
+        width: 150px;
+        max-width: 150px;
+    }
+
+    table {
+        border-collapse: collapse;
+
+        tbody {
+            tr {
+                &:first-child {
+                    border-top: 1px solid #CECECE;                    
+                }
+
+                margin: 10px auto;
+                border-top: 2px solid #CECECE;
+
+                .amount {
+                    span {
+                        margin: auto 5px;
+                    }
+                }
+            }
+        }
+    }
+}

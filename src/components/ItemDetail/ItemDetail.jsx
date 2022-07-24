@@ -1,25 +1,91 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styles from './ItemDetail.module.scss';
 
 export function ItemDetail() {
-
     const item = useSelector( state => state.product );
+    const basketProducts = useSelector( state => state.basket_lines );
+    const basket = useSelector( state => state.basket );
+
     const navigate = useNavigate();
 
+	const dispatch = useDispatch();
+
+    const addToBasket = () => {
+
+        if (!basket.length)
+        {
+            let basket_line = {
+                product: item,
+                amount: 1,
+                prod_ref: item[0].prodref
+            }
+
+            basket.push(basket_line);
+        }
+        else {
+            let new_line = true;
+            
+            basket.map((product, index) => {
+                if(product.prod_ref === item[0].prodref) {
+                    product.amount = product.amount + 1;
+                    basket[index] = product;
+                    new_line = false;
+                }
+            });
+
+            if(new_line) {
+                let basket_line = {
+                    product: item,
+                    amount: 1,
+                    prod_ref: item[0].prodref
+                }
+
+                basket.push(basket_line);
+            }
+        }
+
+        dispatch({
+            type: "SET_BASKET",
+            basket_products: basket
+        });
+
+        dispatch({
+            type: "SET_BASKET_LINES",
+            basket_lines: basket.length
+        });
+    }
+
+
     return (    
-        <div id="movieDetailContainer" className="componentContainer">
+        <div id="ItemDetailContainer" className={styles.ItemDetailContainer}>
             
-            <button onClick={() => navigate(-1)}>go back</button>
+            <div className={styles.buttonContainer}>
+                <button onClick={() => navigate(-1)}>Back to List</button>
+            </div>
             
-            <div className="productDetailContent">
+            <section className={styles.titlePanel}>
+                    <div className={styles.titleContent}>
+                        { item[0] ? <span>{item[0].designation}</span> : "" }
+                    </div>
+                </section>
+
+            <div className={styles.productDetailContent}>
                 
-                <section id="imagePanel"></section>
+                <section className={styles.imagePanel}>
+                    {
+                        item[0] ? 
+                            <div className={styles.imageContainer}>
+                                <img src={item[0].imgurl} alt={item[0].designation}></img>
+                            </div>
+                            : ""
+                    }
+                </section>
                 
-                <section id="infoPanel">
+                <section className={styles.infoPanel}>
                     
-                    <div id="infoContent">
+                    <div className={styles.infoContent}>
                         {
                             /* verifica se movie tem um valor truthy
                             se sim poe o que estiver em movie[0].id
@@ -29,15 +95,18 @@ export function ItemDetail() {
                             escreve espera */
                         }
                         { item[0] ? 
-                            <div>
                                 <div>
-                                    <span>{item[0].designation}</span>
+                                    <span>{item[0].prodref}</span>
                                     <span>{item[0].price}</span>
-                                    <span>{item[0].imgurl}</span>
+                                    <span>{item[0].description}</span>
                                 </div>
-                                <img src={item.imgurl} alt={item.designation}></img>
-                            </div> 
                             : "espera" 
+                        }
+                        {
+                            <div>
+                                <button onClick={addToBasket}>Add to basket</button>
+                            </div>
+
                         }
                     </div>
                 </section>

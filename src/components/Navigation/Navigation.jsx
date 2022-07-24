@@ -7,18 +7,18 @@ import styles from './Navigation.module.scss';
 export function Navigation () {
 	const CategoriesList = useSelector( state => state.categories );
 
+	console.log();
+
 	const dispatch = useDispatch();
 
 	useEffect(  () => {
         ( async function() {
             const categories = await getCategories();
 
-            console.log("categories", categories)
-
 			dispatch({
                 type: "SET_CATEGORIES",
                 categories_list: categories
-              });
+            });
         })();
     }, [dispatch])
 
@@ -28,13 +28,15 @@ export function Navigation () {
 		<nav className={styles.Navigation}>
 			<div className={styles.navItemContainer}>
 				{
-					CategoriesList[0] ? 
-						CategoriesList[0].data.map( (value, index) => (
-							<Link className="list-item-image-link" to={"/ItemList/" + value.catref} key={index}>
+					CategoriesList[0] ? CategoriesList[0].data.filter(value => value.stock > 0).map( (value) => (
+						<div className="list-item-image-link" key={value.catref}>
+							<Link 
+								to={"/ItemList/" + value.catref}
+							>
 								{value.designation}
 							</Link>
-						))
-					: "wait"
+						</div>
+					))	: "wait"
 				}
 			</div>
 		</nav>

@@ -31,6 +31,20 @@ export function reducer(state, action){
         }
         return response;
     }
+    else if ( action.type === 'SET_BASKET_LINES'){
+        let response = {
+            ...state,
+            basket_lines: action.basket_lines
+        }
+        return response;
+    }
+    else if ( action.type === 'SET_BASKET'){
+        let response = {
+            ...state,
+            basket: action.basket_products
+        }
+        return response;
+    }
     return state;
 
 }

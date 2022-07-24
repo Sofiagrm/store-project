@@ -8,7 +8,9 @@ const initialState = {
     products: [],
     product: [],
     categories: [],
-    category: []
+    category: [],
+    basket_lines: 0,
+    basket: []
 }
 
 export const store = createStore(reducer, initialState);
