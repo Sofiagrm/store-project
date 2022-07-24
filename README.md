@@ -1,3 +1,18 @@
+A web server running on http://localhost:80 should be set to serve images present on the 'store' folder. This folder provides as well some images present on the images folder for some products creation.
+
+This application makes use of an api provided by the project store-api. This project can be cloned from the a github repository on https://github.com/Sofiagrm/store-api.git
+
+Database script is provided to create a mysql database. For the purpose of usage with this application the script store_mysql_schema_creation_script.sql must be used to create a database, which must run on port 3306. This can be configured, as well as other DB configurations on the file db.config.js of the store-api project.
+
+The site is launched via command line using node, running the commande npm start. Before this is convinient to to install the project (npm install).
+
+To be able to have contents on the site, they need to be created. This can be done through the admin page of the site (http://localhost:3000/admin). You can add products and product categories. It is advisable to create categories previously to adding products as these require categories.
+
+The basket (shopping cart), on the top right shows the number of products added to the cart. Clicking the number will direct you to the shopping cart page.
+
+Unfortunatly, due to last moment code changes the addiction or subtraction of product amounts stopped refreshing the amount on screen, although the buttons works, there is no way to know the amount of product. Due to this there was no time to actually implement the functionality to store invoiceson the database with the pay button.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
